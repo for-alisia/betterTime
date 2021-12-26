@@ -1,0 +1,7 @@
+{
+  "name": "better-time",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
