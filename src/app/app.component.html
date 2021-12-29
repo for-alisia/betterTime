@@ -7,18 +7,36 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>
-          <ion-icon name="business" slot="start"></ion-icon>
-          <ion-label>Discover Places</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="checkbox-outline" slot="start"></ion-icon>
-          <ion-label>Your bookings</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="exit" slot="start"></ion-icon>
-          <ion-label>LogOut</ion-label>
-        </ion-item>
+        <ion-menu-toggle menu="sideDrawer">
+          <ion-item lines="none" routerLink="/places/discover">
+            <ion-icon name="business" slot="start"></ion-icon>
+            <ion-label>Discover Places</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="sideDrawer">
+          <ion-item lines="none" routerLink="/places/offers">
+            <ion-icon name="file-tray-full-outline" slot="start"></ion-icon>
+            <ion-label>Manage your organizations</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="sideDrawer">
+          <ion-item lines="none" routerLink="/places/dashboard">
+            <ion-icon name="podium-outline" slot="start"></ion-icon>
+            <ion-label>Dashboard</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="sideDrawer">
+          <ion-item lines="none" routerLink="/bookings">
+            <ion-icon name="checkbox-outline" slot="start"></ion-icon>
+            <ion-label>Your bookings</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="sideDrawer">
+          <ion-item lines="none" (click)="onLogout()" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>LogOut</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>

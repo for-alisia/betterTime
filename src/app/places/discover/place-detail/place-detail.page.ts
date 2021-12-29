@@ -1,8 +1,13 @@
+import { CreateBookingComponent } from './../../../bookings/create-booking/create-booking.component';
 import { Place } from './../../places.model';
 import { PlacesService } from './../../places.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import {
+  ActionSheetController,
+  ModalController,
+  NavController,
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-place-detail',
@@ -15,7 +20,9 @@ export class PlaceDetailPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private activatedRoute: ActivatedRoute,
-    private placesService: PlacesService
+    private placesService: PlacesService,
+    private modalCtrl: ModalController,
+    private actionSheetCtrl: ActionSheetController
   ) {}
 
   ngOnInit() {
@@ -30,7 +37,46 @@ export class PlaceDetailPage implements OnInit {
     });
   }
 
-  onBookPlace() {
-    this.navCtrl.navigateBack('/places/discover');
+  async openBookingModal(mode: 'select' | 'random') {
+    const modalEl = await this.modalCtrl.create({
+      component: CreateBookingComponent,
+      componentProps: {
+        selectedPlace: this.place,
+      },
+    });
+    modalEl.present();
+
+    const resultData = await modalEl.onDidDismiss();
+
+    if (resultData.role === 'confirm') {
+      console.log('Booked!');
+    }
+  }
+
+  async onBookPlace() {
+    // this.navCtrl.navigateBack('/places/discover');
+    const actionSheetEl = await this.actionSheetCtrl.create({
+      header: 'Choose an action',
+      buttons: [
+        {
+          text: 'Select Date',
+          handler: () => {
+            this.openBookingModal('select');
+          },
+        },
+        {
+          text: 'Random Date',
+          handler: () => {
+            this.openBookingModal('random');
+          },
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    actionSheetEl.present();
   }
 }

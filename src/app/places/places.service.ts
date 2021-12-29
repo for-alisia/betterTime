@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class PlacesService {
   private intPlaces: Place[] = [
     {
-      id: 'id1',
+      id: 'pl1',
       title: 'Fouette studio',
       description: 'First class ballet studio for kids and adults',
       category: 'Dancing',
@@ -15,7 +15,7 @@ export class PlacesService {
         'https://res.cloudinary.com/for-alisia/image/upload/v1640541687/ballet/filial1_thcvfg.jpg',
     },
     {
-      id: 'id2',
+      id: 'pl2',
       title: 'London Express',
       description:
         'English language school for kids and adults for all levels, from total beginners to C1',
@@ -24,7 +24,7 @@ export class PlacesService {
         'https://res.cloudinary.com/for-alisia/image/upload/v1640542288/ballet/filial2_et1jz2.jpg',
     },
     {
-      id: 'id3',
+      id: 'pl3',
       title: 'Karma studio',
       description:
         'English language school for kids and adults for all levels, from total beginners to C1',
