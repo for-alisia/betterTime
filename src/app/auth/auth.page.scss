@@ -1,0 +1,40 @@
+.title {
+  .title-subtext {
+    padding-left: 20px;
+    font-size: 0.8rem;
+  }
+
+  .title-header {
+    margin-bottom: 1px;
+
+    ion-text {
+      font-weight: 600;
+    }
+  }
+}
+
+.container {
+  ion-grid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-10%);
+
+    ion-row:not(:last-child),
+    ion-item:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .forgot-container {
+    margin-top: 1rem;
+
+    ion-note {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

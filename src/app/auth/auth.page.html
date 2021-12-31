@@ -1,12 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Authentification</ion-title>
+  <ion-toolbar class="title">
+    <ion-title class="title-header"
+      >Welcome to the <ion-text color="primary">BetterTime</ion-text></ion-title
+    >
+    <ion-text class="title-subtext" color="medium"
+      >Best platform for service organizations</ion-text
+    >
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-buttons>
-    <ion-button color="primary" (click)="onLogin()">Login</ion-button>
-    <ion-button (click)="onSignUp()">Sign Up</ion-button>
-  </ion-buttons>
+<ion-content class="container">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="8" size-lg="5">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-buttons class="ion-justify-content-center">
+          <ion-button color="primary" fill="solid" (click)="onLogin()"
+            >Login</ion-button
+          >
+          <ion-button (click)="onSignUp()" color="primary" fill="outline"
+            >Sign Up</ion-button
+          >
+        </ion-buttons>
+        <div class="ion-text-center forgot-container">
+          <ion-note color="secondary">I forgot my password</ion-note>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
