@@ -28,12 +28,12 @@
   --ion-color-tertiary-tint: #e4cb90;
 
   /** success **/
-  --ion-color-success: #1fe0d3;
+  --ion-color-success: #0cceae;
   --ion-color-success-rgb: 31, 224, 211;
   --ion-color-success-contrast: #ffffff;
   --ion-color-success-contrast-rgb: 255, 255, 255;
-  --ion-color-success-shade: #1bc5ba;
-  --ion-color-success-tint: #35e3d7;
+  --ion-color-success-shade: #15e7c4;
+  --ion-color-success-tint: #24d8ba;
 
   /** warning **/
   --ion-color-warning: #ff9921;
@@ -44,12 +44,12 @@
   --ion-color-warning-tint: #e78616;
 
   /** danger **/
-  --ion-color-danger: #ca5454;
+  --ion-color-danger: #910707;
   --ion-color-danger-rgb: 202, 84, 84;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
-  --ion-color-danger-shade: #d84c4c;
-  --ion-color-danger-tint: #a83e3e;
+  --ion-color-danger-shade: #a10d0d;
+  --ion-color-danger-tint: #b11010;
 
   /** dark **/
   --ion-color-dark: #3c3735;
@@ -74,6 +74,9 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #f6f6f6;
   --ion-color-light-tint: #dbd8d8;
+
+  /** Additional colors **/
+  --grey-light: #9e9d9c;
 
   /** Font **/
   --ion-font-family: "Montserrat";

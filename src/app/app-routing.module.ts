@@ -25,6 +25,13 @@ const routes: Routes = [
     redirectTo: 'places/discover',
     pathMatch: 'full',
   },
+  {
+    path: 'restore/password',
+    loadChildren: () =>
+      import('./restore-password/restore-password.module').then(
+        (m) => m.RestorePasswordPageModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -132,3 +132,15 @@
 ion-button {
   min-width: 90px;
 }
+
+/* Inputs */
+
+.item-interactive.ion-valid.item-has-focus,
+.item-interactive.ion-invalid.item-has-focus {
+  --highlight-background: var(--grey-light);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}

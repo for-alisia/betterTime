@@ -10,33 +10,122 @@
 </ion-header>
 
 <ion-content class="container">
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-md="8" size-lg="5">
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-buttons class="ion-justify-content-center">
-          <ion-button color="primary" fill="solid" (click)="onLogin()"
-            >Login</ion-button
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-md="8" size-lg="5">
+          <ion-title color="primary" class="form-header"
+            >{{authMode === 'login' ? 'Login' : 'Sign Up'}}</ion-title
           >
-          <ion-button (click)="onSignUp()" color="primary" fill="outline"
-            >Sign Up</ion-button
+          <app-input
+            formControlName="test"
+            [valid]="authForm.controls.test.valid"
+            type="text"
+            label="Test"
+            errorMsg="Provide something here"
+          ></app-input>
+          <fieldset *ngIf="authMode === mode.signUp" class="input-field">
+            <ion-item>
+              <ion-label position="floating">Name</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="name"
+                required
+                minlength="3"
+                formControlName="name"
+              ></ion-input>
+              <ion-icon
+                *ngIf="authForm.controls.name.valid && authForm.controls.name.touched"
+                name="checkmark-outline"
+                color="success"
+              ></ion-icon>
+            </ion-item>
+            <ion-note
+              *ngIf="!authForm.controls.name.valid && authForm.controls.name.touched"
+              color="danger"
+            >
+              Name should have at least 3
+            </ion-note>
+          </fieldset>
+          <fieldset class="input-field">
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input
+                type="email"
+                ngModel
+                name="email"
+                required
+                email
+                formControlName="email"
+              ></ion-input>
+              <ion-icon
+                *ngIf="authForm.controls.email.valid && authForm.controls.email.touched"
+                name="checkmark-outline"
+                color="success"
+              ></ion-icon>
+            </ion-item>
+            <ion-note
+              *ngIf="!authForm.controls.email.valid && authForm.controls.email.touched"
+              color="danger"
+            >
+              Provide a valid email address
+            </ion-note>
+          </fieldset>
+          <fieldset class="input-field">
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input
+                type="password"
+                ngModel
+                name="password"
+                required
+                minlength="6"
+                formControlName="password"
+              ></ion-input>
+              <ion-icon
+                *ngIf="authForm.controls.password.valid && authForm.controls.password.touched"
+                name="checkmark-outline"
+                color="success"
+              ></ion-icon>
+            </ion-item>
+            <ion-note
+              *ngIf="!authForm.controls.password.valid && authForm.controls.password.touched"
+              color="danger"
+            >
+              Provide at least 6 symbols
+            </ion-note>
+          </fieldset>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-buttons class="ion-justify-content-center">
+            <ion-button
+              color="primary"
+              [fill]="authMode === mode.login ? 'solid' : 'outline'"
+              [type]="authMode === mode.login ? 'submit' : 'button'"
+              [disabled]="authMode === mode.login && !authForm.valid"
+              (click)="onSwitchMode(mode.login)"
+              >Login</ion-button
+            >
+            <ion-button
+              (click)="onSwitchMode(mode.signUp)"
+              [type]="authMode === mode.signUp ? 'submit' : 'button'"
+              [disabled]="authMode === mode.signUp && !authForm.valid"
+              color="primary"
+              [fill]="authMode === mode.signUp ? 'solid' : 'outline'"
+              >Sign Up</ion-button
+            >
+          </ion-buttons>
+          <div
+            class="ion-text-center forgot-container"
+            *ngIf="authMode === 'login'"
           >
-        </ion-buttons>
-        <div class="ion-text-center forgot-container">
-          <ion-note color="secondary">I forgot my password</ion-note>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            <ion-note color="secondary">I forgot my password</ion-note>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
