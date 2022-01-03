@@ -1,3 +1,4 @@
+import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-offer.page.scss'],
 })
 export class NewOfferPage implements OnInit {
-  constructor() {}
+  orgForm = this.fb.group({
+    title: [
+      '',
+      Validators.compose([Validators.required, Validators.minLength(6)]),
+    ],
+    description: [
+      '',
+      Validators.compose([Validators.required, Validators.minLength(20)]),
+    ],
+    price: ['', Validators.compose([Validators.required])],
+  });
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
 }

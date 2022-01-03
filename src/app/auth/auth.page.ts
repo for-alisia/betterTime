@@ -17,10 +17,15 @@ export class AuthPage implements OnInit {
   mode: typeof AuthMode = AuthMode;
   authMode = AuthMode.login;
   authForm = this.fb.group({
-    test: ['', Validators.minLength(6)],
-    name: ['', Validators.minLength(3)],
-    email: ['', Validators.email],
-    password: ['', Validators.minLength(6)],
+    name: [
+      '',
+      Validators.compose([Validators.required, Validators.minLength(3)]),
+    ],
+    email: ['', Validators.compose([Validators.required, Validators.email])],
+    password: [
+      '',
+      Validators.compose([Validators.required, Validators.minLength(6)]),
+    ],
   });
 
   constructor(

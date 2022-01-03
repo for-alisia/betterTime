@@ -10,12 +10,37 @@
 <ion-content>
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-sm="10" size-md="6" size-lg="4"
-        >Row 1 Col 1</ion-col
-      >
-      <ion-col size="12" size-sm="10" size-md="6" size-lg="4"
-        >Row 1 Col 2</ion-col
-      >
+      <ion-col size-sm="6">
+        <form [formGroup]="orgForm">
+          <div class="input-container">
+            <app-input
+              formControlName="title"
+              [valid]="orgForm.controls.title.valid"
+              type="text"
+              label="Organization name"
+              errorMsg="Provide at least 6 characters"
+            ></app-input>
+          </div>
+          <div class="input-container">
+            <app-input
+              formControlName="description"
+              [valid]="orgForm.controls.description.valid"
+              type="textarea"
+              label="Description"
+              errorMsg="Provide at least 20 characters"
+            ></app-input>
+          </div>
+          <div class="input-container">
+            <app-input
+              formControlName="price"
+              [valid]="orgForm.controls.title.valid"
+              type="number"
+              label="Price"
+              errorMsg="Provide a price"
+            ></app-input>
+          </div>
+        </form>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

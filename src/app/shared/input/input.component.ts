@@ -19,6 +19,9 @@ export class InputComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() type: string;
   @Input() errorMsg: string;
+  @Input() autocomplete: boolean;
+  @Input() autocorrect: boolean;
+  @Input() rows: number;
 
   value = '';
   touched = false;

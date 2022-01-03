@@ -18,10 +18,6 @@
     height: 100%;
   }
 
-  .input-field:not(:first-of-type) {
-    margin-top: 2rem;
-  }
-
   ion-grid {
     height: 100%;
     display: flex;
@@ -29,20 +25,8 @@
     justify-content: center;
     transform: translateY(-10%);
 
-    ion-row:not(:first-of-type) {
+    .input-container:not(:first-of-type) {
       margin-top: 2rem;
-    }
-
-    ion-item {
-      ion-icon {
-        position: absolute;
-        right: 0;
-        top: 40%;
-      }
-    }
-
-    ion-note {
-      font-size: 0.6rem;
     }
   }
 

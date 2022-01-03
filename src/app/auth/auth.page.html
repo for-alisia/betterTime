@@ -12,90 +12,39 @@
 <ion-content class="container">
   <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
     <ion-grid>
-      <ion-row class="ion-justify-content-center">
+      <ion-row class="ion-justify-content-center ion-margin-bottom">
         <ion-col size="12" size-md="8" size-lg="5">
           <ion-title color="primary" class="form-header"
             >{{authMode === 'login' ? 'Login' : 'Sign Up'}}</ion-title
           >
-          <app-input
-            formControlName="test"
-            [valid]="authForm.controls.test.valid"
-            type="text"
-            label="Test"
-            errorMsg="Provide something here"
-          ></app-input>
-          <fieldset *ngIf="authMode === mode.signUp" class="input-field">
-            <ion-item>
-              <ion-label position="floating">Name</ion-label>
-              <ion-input
-                type="text"
-                ngModel
-                name="name"
-                required
-                minlength="3"
-                formControlName="name"
-              ></ion-input>
-              <ion-icon
-                *ngIf="authForm.controls.name.valid && authForm.controls.name.touched"
-                name="checkmark-outline"
-                color="success"
-              ></ion-icon>
-            </ion-item>
-            <ion-note
-              *ngIf="!authForm.controls.name.valid && authForm.controls.name.touched"
-              color="danger"
-            >
-              Name should have at least 3
-            </ion-note>
-          </fieldset>
-          <fieldset class="input-field">
-            <ion-item>
-              <ion-label position="floating">Email</ion-label>
-              <ion-input
-                type="email"
-                ngModel
-                name="email"
-                required
-                email
-                formControlName="email"
-              ></ion-input>
-              <ion-icon
-                *ngIf="authForm.controls.email.valid && authForm.controls.email.touched"
-                name="checkmark-outline"
-                color="success"
-              ></ion-icon>
-            </ion-item>
-            <ion-note
-              *ngIf="!authForm.controls.email.valid && authForm.controls.email.touched"
-              color="danger"
-            >
-              Provide a valid email address
-            </ion-note>
-          </fieldset>
-          <fieldset class="input-field">
-            <ion-item>
-              <ion-label position="floating">Password</ion-label>
-              <ion-input
-                type="password"
-                ngModel
-                name="password"
-                required
-                minlength="6"
-                formControlName="password"
-              ></ion-input>
-              <ion-icon
-                *ngIf="authForm.controls.password.valid && authForm.controls.password.touched"
-                name="checkmark-outline"
-                color="success"
-              ></ion-icon>
-            </ion-item>
-            <ion-note
-              *ngIf="!authForm.controls.password.valid && authForm.controls.password.touched"
-              color="danger"
-            >
-              Provide at least 6 symbols
-            </ion-note>
-          </fieldset>
+          <div class="input-container">
+            <app-input
+              *ngIf="authMode === mode.signUp"
+              formControlName="name"
+              [valid]="authForm.controls.name.valid"
+              type="text"
+              label="Name"
+              errorMsg="Name should have at least 3 characters"
+            ></app-input>
+          </div>
+          <div class="input-container">
+            <app-input
+              formControlName="email"
+              [valid]="authForm.controls.email.valid"
+              type="email"
+              label="Email"
+              errorMsg="Provide valid e-mail"
+            ></app-input>
+          </div>
+          <div class="input-container">
+            <app-input
+              formControlName="password"
+              [valid]="authForm.controls.password.valid"
+              type="password"
+              label="Password"
+              errorMsg="Password should have at least 6 characters"
+            ></app-input>
+          </div>
         </ion-col>
       </ion-row>
       <ion-row>
