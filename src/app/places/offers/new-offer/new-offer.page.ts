@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-offer.page.scss'],
 })
 export class NewOfferPage implements OnInit {
+  // Implement it with moment.js
+  todayDate: Date = new Date();
+
   orgForm = this.fb.group({
     title: [
       '',
@@ -21,5 +25,15 @@ export class NewOfferPage implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
+  get startDate(): string {
+    return moment(this.todayDate).format('YYYY-MM-DD');
+  }
+
+  get endDate(): string {
+    return moment(this.todayDate).add(3, 'y').format('YYYY-MM-DD');
+  }
+
   ngOnInit() {}
+
+  onCreateOffer() {}
 }
